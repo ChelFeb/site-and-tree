@@ -1,15 +1,43 @@
 <!DOCTYPE html>
-<html>
+<html ng-app="phonecatApp" ng-controller="PhoneListCtrl">
   <head>
     <meta charset='utf-8'>
     <title>Main</title>
+
+    <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+    
+    <!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+	<!-- Optional theme -->
+	<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap-theme.min.css">
+	<!-- Latest compiled and minified JavaScript -->
+	<script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+    
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.15/angular.min.js"></script>
+    <script type="text/javascript" src="javascripts/main.js"></script>
+    <script type="text/javascript" src="javascripts/controllers.js"></script>
   </head>
 
   <body>
 
-    <div id="container">
-      <h4>Hello to main page</h4>
+    <div class="well row-fluid" id="container">
+   		
+   		<div class="span2">
+   			Search: <input ng-model="query">	
+   		</div>
+   		
+   		<div class="well span10">
+   			<ui>
+   				<li ng-repeat="p in phones | filter:query">
+   					{{p.name}}
+   					<p>{{p.snippet}}</p>
+   				</li>		
+   			</ui>
+   		</div>	
+
     </div>
+
+
 
   </body>
 </html>
